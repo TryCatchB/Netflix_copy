@@ -1,0 +1,63 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+
+  & div:first-child {
+    display: flex;
+    align-items: center;
+    & a {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.notification {
+  position: relative;
+  margin-right: 1.5rem;
+
+  & i {
+    color: #fff;
+    font-size: 28px;
+  }
+
+  & span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #0f1011;
+    background-color: #c62e21;
+  }
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+
+  & div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.3rem;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+  }
+
+  & i {
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+  }
+}
