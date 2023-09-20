@@ -1,0 +1,23 @@
+.sidebar {
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        display: block;
+        font-size: 20px;
+        color: #9b9a97;
+        padding: 0.5rem;
+        border-right: 2px solid transparent;
+        text-decoration: none;
+
+        &:hover,
+        &.active {
+          border-color: #c62e21;
+          background-color: #2a2a2c;
+        }
+      }
+    }
+  }
+}

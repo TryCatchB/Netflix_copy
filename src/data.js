@@ -1,6 +1,7 @@
 export const DATA = [
   {
     title: "The Shawshank Redemption",
+    logo: "https://m.media-amazon.com/images/I/61-vQDr7ecL._AC_UF894,1000_QL80_.jpg",
     director: "Frank Darabont",
     releaseYear: 1994,
     genre: ["Drama", "Crime"],
