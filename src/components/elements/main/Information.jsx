@@ -6,10 +6,14 @@ const Information = ({ movie }) => {
   const addToFavorites = (movieName) => {
     let favorites = localStorage.getItem("favMovies");
 
+    console.log(movieName);
+
     if (favorites) {
       favorites = JSON.parse(favorites);
       localStorage.setItem("favMovies", { ...favorites, movieName });
-      alert(`${movieName} now in favorites`);
+      alert(`${movieName} is now in favorites`);
+    } else {
+      localStorage.setItem("favMovies", movieName);
     }
   };
 
@@ -24,11 +28,11 @@ const Information = ({ movie }) => {
       <div className={styles.description}>{movie.plotSummary}</div>
 
       <div className={styles.buttons}>
-        <Button cb={() => console.log("video is open")}>
+        <Button callBack={() => console.log("video is open")}>
           <i className="bx bx-play" style={{ color: "#c62e21" }}></i>
           <span>Play</span>
         </Button>
-        <Button cb={() => addToFavorites()}>
+        <Button callBack={addToFavorites}>
           <i className="bx bx-plus"></i>
           <span>My list</span>
         </Button>

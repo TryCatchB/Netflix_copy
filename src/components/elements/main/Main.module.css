@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  min-height: 514px;
+
+  & .main {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: linear-gradient(to right, #0f1011, transparent);
+    }
+  }
+
+  .info {
+    position: relative;
+    z-index: 1;
+    width: 50%;
+    padding: 4rem 1rem;
+
+    & .additional {
+      display: flex;
+      align-items: center;
+      color: #9b9a97;
+      margin: 1rem 0 2rem;
+
+      & span {
+        font-size: 18px;
+        margin-right: 1rem;
+      }
+    }
+
+    & .description {
+      font-size: 25px;
+      color: #9b9a97;
+      margin-bottom: 3rem;
+      line-height: 1.65;
+    }
+  }
+}

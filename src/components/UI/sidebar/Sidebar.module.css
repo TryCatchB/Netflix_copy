@@ -1,16 +1,37 @@
 .sidebar {
-  ul {
+  & button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #9b9a97;
+  }
+
+  .close {
+    position: relative;
+    right: -15.125rem;
+  }
+
+  & ul {
+    display: none;
     list-style: none;
-    li {
+    padding: 0;
+    animation: opacity 0.4s;
+
+    &.show {
+      display: block;
+    }
+
+    & li {
       margin-bottom: 0.5rem;
 
-      a {
+      & a {
         display: block;
         font-size: 20px;
         color: #9b9a97;
         padding: 0.5rem;
-        border-right: 2px solid transparent;
+        border-left: 2px solid transparent;
         text-decoration: none;
+        text-align: right;
 
         &:hover,
         &.active {
@@ -19,5 +40,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

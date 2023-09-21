@@ -1,22 +1,35 @@
 import React, { useState } from "react";
-import data from "./../../../data";
+import { DATA } from "../../../data";
 import Sidebar from "../../UI/sidebar/Sidebar";
 import Information from "./Information";
 import ButtomNavigation from "../../UI/bottomNavigation/BottomNavigation";
+import styles from "./Main.module.css";
+import Episodes from "../episodes/Episodes";
 
 const Main = () => {
-  const [isSidebaShow, setIsSidebarShow] = useState(false);
+  const [isSidebarShow, setIsSidebarShow] = useState(false);
+  const [activeTab, setActiveTab] = useState(false);
 
   return (
-    <main>
+    <main className={styles.wrapper}>
       <Sidebar
-        isSidebaShow={isSidebaShow}
+        isSidebarShow={isSidebarShow}
         setIsSidebarShow={setIsSidebarShow}
       />
-      <div style={{ backgroundImage: `url(${data[0]})` }}>
-        <Information movie={data[0]} />
-        <ButtomNavigation />
+      <div
+        className={styles.main}
+        style={{
+          backgroundImage: `url(${DATA[0].mainImage})`,
+          width: isSidebarShow ? "85%" : "90%",
+        }}
+      >
+        {activeTab === 1 ? (
+          <Information movie={DATA[0]} />
+        ) : (
+          activeTab === 2 && <Episodes movie={DATA[0]} />
+        )}
       </div>
+      <ButtomNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
     </main>
   );
 };
