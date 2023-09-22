@@ -1,15 +1,13 @@
 export const DATA = [
   {
-    title: "The Shawshank Redemption",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/The_Shawshank_Redemption_movie_logo.png/800px-The_Shawshank_Redemption_movie_logo.png",
+    title: "Blade Runner 2049",
+    logo: "https://appcloud.warnerbros.com/bladerunner/roadto2049/assets/images/tt-white.png",
     mainImage:
-      "https://m.media-amazon.com/images/S/pv-target-images/d56b2942bc24e60043c79b061040c63d43ba529f0db1feff055e3b7a4dcc28ce.jpg",
-    director: "Frank Darabont",
-    releaseYear: 1994,
-    genre: ["Drama", "Crime"],
-    rating: 9.3,
-    cast: ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+      "https://media.architecturaldigest.com/photos/5a8333fd498fd76f3be3d50c/master/pass/BR-SINTL-87634v2.jpg",
+    director: "Denis Villeneuve",
+    releaseYear: 2017,
+    rating: 8,
     plotSummary:
-      "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "In the year 2049, Officer K (played by Ryan Gosling), a new-generation blade runner, unearths a long-buried secret that has the potential to plunge what remains of society into chaos. His discovery leads him on a quest to find Rick Deckard (played by Harrison Ford), a former blade runner who has been missing for 30 years.",
   },
 ];

@@ -1,19 +1,22 @@
 export const photos = [
-  { image: "https://cdn.theasc.com/Shawshank-Featured.jpg" },
   {
     image:
-      "https://i.guim.co.uk/img/media/6495f40152ef3ec8408d1ebfe33fdbf28e7f002b/0_0_3062_1838/master/3062..jpg?width=1200&quality=85&auto=format&fit=max&s=58392c0605f25196166513ff721510c8",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4c5M4c3Tfxx-HujiaDOa4y-LO1iSWHGYbaA&usqp=CAU",
   },
   {
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlucWM692B_WAKUAOf3782WZbJ1XyOZBkn-NtuhpHRwoIUjMWafeRSdn7S-i076ToN1So&usqp=CAU",
+      "https://media.gq.com/photos/59db98fa4ea8866a0b03b2d8/16:9/w_2560%2Cc_limit/blade-runner-sex.jpg",
   },
   {
     image:
-      "https://content.api.news/v3/images/bin/cf61b7b3070480c3167178f358b35261",
+      "https://media.wired.com/photos/59d28ed666aeb214a75b1951/master/w_2560%2Cc_limit/BladeRunner4-TA.jpg",
   },
   {
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS12DXOrBpsbNz4FuCUWqiiOyJx_bKJ_E6UAIQ5tXM6KhGbNbScpDkzXh-PY2C0EuuIznU&usqp=CAU",
+      "https://themovieculture.com/wp-content/uploads/2021/03/Blade2520Runner252020492520Gritty.jpg",
+  },
+  {
+    image:
+      "https://www.denofgeek.com/wp-content/uploads/2018/01/Ana-de-Armas-in-Blade-Runner-2049.png?fit=1500%2C843",
   },
 ];
