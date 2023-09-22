@@ -18,7 +18,7 @@ const Sidebar = ({ isSidebarShow, setIsSidebarShow }) => {
       <ul className={isSidebarShow ? styles.show : ""}>
         {menu.map((title) => (
           <li key={title}>
-            <a href={title}>{title}</a>
+            <a href="#">{title}</a>
           </li>
         ))}
       </ul>
