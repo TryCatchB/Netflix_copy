@@ -1,7 +1,7 @@
 export const photos = [
   {
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4c5M4c3Tfxx-HujiaDOa4y-LO1iSWHGYbaA&usqp=CAU",
+      "https://p4.wallpaperbetter.com/wallpaper/433/474/344/bladerunner-blade-runner-2049-cyberpunk-hd-wallpaper-preview.jpg",
   },
   {
     image:
