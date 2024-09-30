@@ -4,6 +4,7 @@ import Home from "../components/pages/home/Home";
 import MyList from "../components/pages/mylist/MyList";
 import Popular from "../components/pages/popular/Popular";
 import TVshows from "../components/pages/TVshows/TVshows";
+import userProfile from "../components/pages/userProfile/userProfile";
 
 export const routes = [
   {
@@ -29,5 +30,9 @@ export const routes = [
   {
     path: "/tvshows",
     element: TVshows,
+  },
+  {
+    path: "/profile",
+    element: userProfile,
   },
 ];

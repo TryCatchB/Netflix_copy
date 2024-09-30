@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface IAuth {
+interface IUser {
   name: string;
   password: string;
   isAuth: boolean;
 }
 
-const initialState: IAuth = {
+const initialState: IUser = {
   name: "",
   password: "",
   isAuth: false,

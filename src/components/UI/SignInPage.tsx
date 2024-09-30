@@ -21,7 +21,6 @@ const SignInPage: FC = () => {
   } = useForm<SignInFormInputs>();
 
   const onSubmit = (data: SignInFormInputs) => {
-    console.log(data);
     dispatch(login({ name: data.name, password: data.password }));
 
     navigate("/");
