@@ -24,8 +24,12 @@
     display: flex;
     gap: 1.875rem;
 
-    .link:hover {
-        opacity: 0.8;
+    .link {
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 
     & img {

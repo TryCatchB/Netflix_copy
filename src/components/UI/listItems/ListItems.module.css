@@ -5,8 +5,12 @@
     justify-content: space-between;
 }
 
-.link:hover {
-    opacity: 0.7;
+.link {
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .image {
