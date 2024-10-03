@@ -1,7 +1,7 @@
 .grettings {
     display: flex;
     justify-content: center;
-    padding-top: 6.25rem;
+    padding-top: 9.375rem;
 }
 
 .content {
@@ -20,8 +20,8 @@
         font-size: 1.25rem;
         margin-bottom: 15px;
     }
-}
 
-:is(.title, .text) {
-    text-align: center;
+    :is(.title, .text) {
+        text-align: center;
+    }
 }

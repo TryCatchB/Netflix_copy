@@ -12,7 +12,7 @@ const initialState: IUser = {
   isAuth: false,
 };
 
-const userSlice = createSlice({
+export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -36,4 +36,3 @@ const userSlice = createSlice({
 });
 
 export const { login, logout } = userSlice.actions;
-export default userSlice.reducer;

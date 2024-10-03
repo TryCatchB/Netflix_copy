@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 import { TextField, Button, Container, Typography, Paper } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { login } from "../../features/userSlice";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../../features/userSlice";
 
 interface SignInFormInputs {
   name: string;

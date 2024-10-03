@@ -7,9 +7,17 @@ body {
   color: white;
 }
 
+body {
+  background-image: url("./assets/backgroundTVshows.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
 * {
   padding: 0;
   margin: 0;
+  list-style-type: none;
+  text-decoration: none;
 }
 
 button {

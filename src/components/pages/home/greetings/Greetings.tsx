@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { login } from "../../../../features/userSlice";
-import NavBottoms from "../../../UI/NavBottoms";
+import NavBottoms from "../../../UI/navBottoms/NavBottoms";
 import styles from "./Grettings.module.css";
 
 const Greetings: FC = () => {

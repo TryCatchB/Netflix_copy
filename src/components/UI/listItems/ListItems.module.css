@@ -1,0 +1,30 @@
+.shows {
+    display: flex;
+    min-width: 100%;
+    font-weight: 300;
+    justify-content: space-between;
+}
+
+.link:hover {
+    opacity: 0.7;
+}
+
+.image {
+    max-width: 12.5rem;
+    height: 18.75rem;
+    object-fit: cover;
+    border-radius: 0.625rem;
+}
+
+.showTitle {
+    text-align: center;
+    color: white;
+}
+
+.text {
+    text-align: center;
+}
+
+.year {
+    margin-right: 0.625rem;
+}

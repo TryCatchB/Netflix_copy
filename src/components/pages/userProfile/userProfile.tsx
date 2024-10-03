@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-const userProfile: FC = () => {
+const UserProfile: FC = () => {
   return <div>userProfile</div>;
 };
 
-export default userProfile;
+export default UserProfile;
