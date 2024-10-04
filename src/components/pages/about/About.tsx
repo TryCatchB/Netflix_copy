@@ -10,8 +10,9 @@ import Loader from "../../UI/loader/Loader";
 import Error from "../../UI/error/Error";
 import StarRating from "../../UI/starRating/StarRating";
 import styles from "./About.module.css";
+import MovieImage from "../../UI/movieImage/MovieImage";
 
-type ContentType = "tvshows" | "films" | "populars";
+type ContentType = "tvshows" | "films" | "popular";
 
 const About: FC = () => {
   const { title, type } = useParams<{ title: string; type: ContentType }>();
@@ -31,7 +32,7 @@ const About: FC = () => {
   } = useGetFilmsQuery();
 
   const {
-    data: populars,
+    data: popular,
     isLoading: popularLoading,
     error: popularError,
   } = useGetPopularsQuery();
@@ -41,8 +42,8 @@ const About: FC = () => {
     content = tvShows?.find((item) => item.title === formattedTitle);
   } else if (type === "films") {
     content = films?.find((item) => item.title === formattedTitle);
-  } else if (type === "populars") {
-    content = populars?.find((item) => item.title === formattedTitle);
+  } else if (type === "popular") {
+    content = popular?.find((item) => item.title === formattedTitle);
   }
 
   const isLoading = tvLoading || filmLoading || popularLoading;
@@ -65,7 +66,7 @@ const About: FC = () => {
       </div>
       <div className={styles.videoContent}>
         <Link className={styles.link} to={content.image}>
-          <img src={content.image} alt="Image of series" />
+          <MovieImage image={content.image} />
         </Link>
         <Video videoUrl={content.video} />
       </div>

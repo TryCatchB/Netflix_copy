@@ -13,13 +13,6 @@
     }
 }
 
-.image {
-    max-width: 12.5rem;
-    height: 18.75rem;
-    object-fit: cover;
-    border-radius: 0.625rem;
-}
-
 .showTitle {
     text-align: center;
     color: white;

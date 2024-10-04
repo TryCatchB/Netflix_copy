@@ -12,7 +12,7 @@ export const contentAPI = createApi({
       query: () => "/films",
     }),
     getPopulars: builder.query<Content[], void>({
-      query: () => "/populars",
+      query: () => "/popular",
     }),
   }),
 });

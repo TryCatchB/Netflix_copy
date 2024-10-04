@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import styles from "./ListItems.module.css";
 import { Link } from "react-router-dom";
 import { Content } from "../../../types/types";
+import MovieImage from "../movieImage/MovieImage";
+import styles from "./ListItems.module.css";
 
 interface IListItems {
   data: Content[];
@@ -16,11 +17,7 @@ const ListItems: FC<IListItems> = ({ data }) => {
             className={styles.link}
             to={`/about/${item.type}/${item.title.replace(/\s+/g, " ")}`}
           >
-            <img
-              className={styles.image}
-              src={item.image}
-              alt="Image of series"
-            />
+            <MovieImage image={item.image} />
             <h3 className={styles.showTitle}>
               <span>{item.id}</span>. {item.title}
             </h3>

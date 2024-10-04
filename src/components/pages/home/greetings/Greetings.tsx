@@ -2,8 +2,8 @@ import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { login } from "../../../../features/userSlice";
-import NavBottoms from "../../../UI/navBottoms/NavBottoms";
 import styles from "./Grettings.module.css";
+import Movie from "./Movie";
 
 const Greetings: FC = () => {
   const dispatch = useDispatch();
@@ -23,8 +23,8 @@ const Greetings: FC = () => {
       <div className={styles.content}>
         <h1 className={styles.title}>Welcome {user.name}!</h1>
         <p className={styles.text}>See your favourite shows and films</p>
-        <NavBottoms />
       </div>
+      <Movie />
     </div>
   );
 };

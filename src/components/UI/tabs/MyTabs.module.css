@@ -1,0 +1,21 @@
+.tabsContainer {
+  background-color: #0f1011;
+  color: white;
+  border-radius: 0.625rem;
+
+  & .tab {
+    transition: background-color 0.3s ease-in-out;
+    
+    &:hover {
+        background-color: #333;
+    }
+  }
+
+  & .selected {
+    background-color: #494949;
+  }
+
+  :is(.tab, .selected) {
+    color: inherit;
+  }
+}
