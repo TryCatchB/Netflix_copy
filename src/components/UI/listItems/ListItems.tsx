@@ -23,8 +23,8 @@ const ListItems: FC<IListItems> = ({ data }) => {
             </h3>
           </Link>
           <p className={styles.text}>
-            <span className={styles.year}>{item.metadata.year}</span>
-            <span className={styles.episodes}>{item.metadata.episodes}</span>
+            <span className={styles.year}>{item.metadata?.year}</span>
+            <span className={styles.episodes}>{item.metadata?.episodes}</span>
           </p>
         </li>
       ))}

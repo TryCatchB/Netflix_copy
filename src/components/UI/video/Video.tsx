@@ -2,9 +2,11 @@ import React, { FC } from "react";
 
 interface IVideo {
   videoUrl: string;
+  width: string;
+  height: string;
 }
 
-const Video: FC<IVideo> = ({ videoUrl }) => {
+const Video: FC<IVideo> = ({ videoUrl, width, height }) => {
   const videoId = videoUrl.split("v=")[1]?.split("&")[0];
 
   if (!videoId) return;
@@ -12,8 +14,8 @@ const Video: FC<IVideo> = ({ videoUrl }) => {
   return (
     <>
       <iframe
-        width="560" // Set width of the video
-        height="400" // Set height of the video
+        width={width} // Set width of the video
+        height={height} // Set height of the video
         src={`https://www.youtube.com/embed/${videoId}`} // Embed the video using the video ID
         title="YouTube video player"
         frameBorder="0"

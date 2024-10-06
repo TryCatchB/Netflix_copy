@@ -68,7 +68,7 @@ const About: FC = () => {
         <Link className={styles.link} to={content.image}>
           <MovieImage image={content.image} />
         </Link>
-        <Video videoUrl={content.video} />
+        <Video videoUrl={content.video} width="560" height="400" />
       </div>
       <div className={styles.description}>
         <p className={styles.text}>{content.description}</p>

@@ -14,8 +14,15 @@ export const contentAPI = createApi({
     getPopulars: builder.query<Content[], void>({
       query: () => "/popular",
     }),
+    getNewest: builder.query<Content[], void>({
+      query: () => "/newest",
+    }),
   }),
 });
 
-export const { useGetTvShowsQuery, useGetFilmsQuery, useGetPopularsQuery } =
-  contentAPI;
+export const {
+  useGetTvShowsQuery,
+  useGetFilmsQuery,
+  useGetPopularsQuery,
+  useGetNewestQuery,
+} = contentAPI;

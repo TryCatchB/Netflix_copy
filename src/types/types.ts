@@ -4,10 +4,10 @@ export interface Content {
   image: string;
   video: string;
   description: string;
-  type: string;
-  metadata: {
+  type?: string;
+  metadata?: {
     year: string;
     rating: string;
-    episodes?: string;
+    episodes: string;
   };
 }
