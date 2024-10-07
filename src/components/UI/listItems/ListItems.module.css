@@ -1,8 +1,9 @@
-.shows {
+.content {
     display: flex;
     min-width: 100%;
     font-weight: 300;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .link {
@@ -14,14 +15,13 @@
 }
 
 .showTitle {
-    text-align: center;
     color: white;
-}
-
-.text {
-    text-align: center;
 }
 
 .year {
     margin-right: 0.625rem;
+}
+
+:is(.showTitle, .text) {
+    text-align: center;
 }

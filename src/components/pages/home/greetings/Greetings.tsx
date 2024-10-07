@@ -2,8 +2,9 @@ import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import { login } from "../../../../features/userSlice";
-import styles from "./Grettings.module.css";
 import Movie from "./Movie";
+import styles from "./Grettings.module.css";
+
 
 const Greetings: FC = () => {
   const dispatch = useDispatch();

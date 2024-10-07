@@ -10,7 +10,7 @@ interface IListItems {
 
 const ListItems: FC<IListItems> = ({ data }) => {
   return (
-    <ul className={styles.shows}>
+    <ul className={styles.content}>
       {data.map((item) => (
         <li key={item.id}>
           <Link
@@ -23,8 +23,8 @@ const ListItems: FC<IListItems> = ({ data }) => {
             </h3>
           </Link>
           <p className={styles.text}>
-            <span className={styles.year}>{item.metadata?.year}</span>
-            <span className={styles.episodes}>{item.metadata?.episodes}</span>
+            <span className={styles.year}>{item.metadata.year}</span>
+            <span className={styles.episodes}>{item.metadata.episodes}</span>
           </p>
         </li>
       ))}

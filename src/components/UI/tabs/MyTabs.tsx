@@ -1,23 +1,38 @@
-import React, { FC, SyntheticEvent, useState } from "react";
+import React, { FC, SyntheticEvent, useEffect, useState } from "react";
 import { Tabs, Tab } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./MyTabs.module.css";
 
 type ThandleChange = {
   (event: SyntheticEvent, newNumber: number): void;
 };
 
+type TrouteToTabIndex = {
+  [key: string]: number;
+};
+
+const routeToTabIndex: TrouteToTabIndex = {
+  "/": 0,
+  "/tvshows": 1,
+  "/films": 2,
+  "/popular": 3,
+};
+
 const MyTabs: FC = () => {
-  const [value, setValue] = useState<number>(() => {
-    const savedValue = localStorage.getItem("selectedTab");
-    return savedValue ? parseInt(savedValue) : 0;
-  });
+  const location = useLocation();
+
+  const [value, setValue] = useState<number>(-1);
 
   const handleChange: ThandleChange = (event, newValue) => {
     setValue(newValue);
-
-    localStorage.setItem("selectedTab", newValue.toString());
   };
+
+  useEffect(() => {
+    const currentTabIndex = routeToTabIndex[location.pathname] ?? -1;
+    setValue(currentTabIndex);
+  }, [location]);
+
+  if (value === -1) return null;
 
   return (
     <Tabs

@@ -5,9 +5,9 @@ export interface Content {
   video: string;
   description: string;
   type?: string;
-  metadata?: {
+  metadata: {
     year: string;
     rating: string;
-    episodes: string;
+    episodes?: string;
   };
 }
