@@ -12,10 +12,10 @@ export const contentAPI = createApi({
       query: () => "/films",
     }),
     getPopulars: builder.query<Content[], void>({
-      query: () => "/popular",
+      query: () => "/popularFilms",
     }),
     getNewest: builder.query<Content[], void>({
-      query: () => "/newest",
+      query: () => "/newestFilms",
     }),
   }),
 });
