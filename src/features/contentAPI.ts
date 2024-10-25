@@ -3,19 +3,21 @@ import { Content } from "../types/types";
 
 export const contentAPI = createApi({
   reducerPath: "contentAPI",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://sincere-kit-400818.uc.r.appspot.com/",
+  }),
   endpoints: (builder) => ({
     getTvShows: builder.query<Content[], void>({
-      query: () => "/tvshows",
+      query: () => "/tv-shows",
     }),
     getFilms: builder.query<Content[], void>({
       query: () => "/films",
     }),
     getPopulars: builder.query<Content[], void>({
-      query: () => "/popularFilms",
+      query: () => "/popular-films",
     }),
     getNewest: builder.query<Content[], void>({
-      query: () => "/newestFilms",
+      query: () => "/newest-films",
     }),
   }),
 });
