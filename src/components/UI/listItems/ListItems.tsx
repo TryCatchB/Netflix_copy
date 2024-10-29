@@ -8,7 +8,7 @@ interface IListItems {
   data: Content[];
 }
 
-const ListItems: FC<IListItems> = ({ data }) => {
+const ListItems: FC<IListItems> = ({ data }): JSX.Element => {
   return (
     <ul className={styles.content}>
       {data.map((item) => (

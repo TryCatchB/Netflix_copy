@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 
-const UserProfile: FC = () => {
+const UserProfile: FC = (): JSX.Element => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
