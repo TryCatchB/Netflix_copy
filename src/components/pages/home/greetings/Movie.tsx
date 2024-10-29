@@ -8,7 +8,6 @@ import styles from "./Movie.module.css";
 
 const Movie: FC = (): JSX.Element => {
   const { data, isLoading, error } = useGetNewestQuery();
-  console.log(data);
 
   if (isLoading) return <Loader />;
   if (error) return <Error error={error} />;

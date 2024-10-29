@@ -1,64 +1,72 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import Image from "../../UI/image/Image";
+import styles from "./UserProfile.module.css";
+
+type UserProfileForm = {
+  userName: string;
+  dob: string;
+  country: string;
+  city: string;
+};
 
 const UserProfile: FC = (): JSX.Element => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const storedName = localStorage.getItem("userName") || "";
+  const storedDob = localStorage.getItem("userDob") || "";
+  const storedCountry = localStorage.getItem("userCountry") || "";
+  const storedCity = localStorage.getItem("userCity") || "";
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setSelectedFile(file);
+  const { register, handleSubmit, setValue } = useForm<UserProfileForm>({
+    defaultValues: {
+      userName: storedName,
+      dob: storedDob,
+      country: storedCountry,
+      city: storedCity,
+    },
+  });
 
-      // Generate a URL for the file so it can be previewed in the browser
-      const fileUrl = URL.createObjectURL(file);
-      setPreviewUrl(fileUrl);
-    }
+  const onSubmit = (data: UserProfileForm) => {
+    localStorage.setItem("userName", data.userName);
+    localStorage.setItem("userDob", data.dob);
+    localStorage.setItem("userCountry", data.country);
+    localStorage.setItem("userCity", data.city);
+    alert("Profile updated!");
   };
 
-  const handleUpload = () => {
-    if (selectedFile) {
-      // Here you would typically upload the file to a server.
-      // For this example, we'll just log it to the console.
-      console.log("File to be uploaded:", selectedFile);
-
-      // Example: You can use FormData to send the file to the server
-      // const formData = new FormData();
-      // formData.append('file', selectedFile);
-
-      // Example API call:
-      // axios.post('/upload', formData).then(response => console.log(response));
-
-      alert("File uploaded successfully!");
-    }
-  };
+  useEffect(() => {
+    setValue("userName", storedName);
+    setValue("dob", storedDob);
+    setValue("country", storedCountry);
+    setValue("city", storedCity);
+  }, [setValue, storedName, storedDob, storedCountry, storedCity]);
 
   return (
-    <div>
-      <h1>User Profile</h1>
-
-      <label htmlFor="file-upload">
-        Upload a profile picture:
-        <input
-          type="file"
-          id="file-upload"
-          accept="image/*"
-          onChange={handleFileChange}
+    <div className={styles.container}>
+      <div className={styles.user}>
+        <Image
+          image={"https://cdn-icons-png.flaticon.com/512/149/149071.png"}
         />
-      </label>
-
-      {/* Preview the selected image */}
-      {previewUrl && (
-        <div>
-          <h2>Preview:</h2>
-          <img
-            src={previewUrl}
-            alt="Profile preview"
-            style={{ width: "200px" }}
-          />
-        </div>
-      )}
-
-      <button onClick={handleUpload}>Upload Photo</button>
+        <p className={styles.name}>{storedName}</p>
+      </div>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <label>
+          Name:
+          <input {...register("userName")} placeholder="Enter your name" />
+        </label>
+        <label>
+          Date of Birth:
+          <input type="date" {...register("dob")} />
+        </label>
+        <label>
+          Country:
+          <input {...register("country")} placeholder="Enter your country" />
+        </label>
+        <label>
+          City:
+          <input {...register("city")} placeholder="Enter your city" />
+        </label>
+        <button type="submit">Save Profile</button>
+      </form>
     </div>
   );
 };

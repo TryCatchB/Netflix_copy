@@ -2,7 +2,8 @@
     display: flex;
     min-width: 100%;
     font-weight: 300;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
     flex-wrap: wrap;
 }
 

@@ -27,10 +27,14 @@ const SignInPage: FC = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" style={{ paddingTop: "50px" }}>
       <Paper
         elevation={0}
-        style={{ padding: "20px", backgroundColor: "#0f1011", color: "white" }}
+        style={{
+          padding: "20px",
+          backgroundColor: "transparent",
+          color: "white",
+        }}
       >
         <Typography variant="h4" align="center" sx={{ marginBottom: "10px" }}>
           Sign In

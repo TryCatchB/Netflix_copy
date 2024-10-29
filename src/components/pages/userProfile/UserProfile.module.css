@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-top: 100px;
+}
+
+.form {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.user {
+    text-align: center;
+
+    & .name {
+        font-size: 30px;
+    }
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+}
