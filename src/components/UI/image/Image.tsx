@@ -5,7 +5,7 @@ interface IImage {
   image: string;
 }
 
-const Image: FC<IImage> = ({ image }) => {
+const Image: FC<IImage> = ({ image }): JSX.Element => {
   return (
     <>
       <img className={styles.image} src={image} alt="Picture" />

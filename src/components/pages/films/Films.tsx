@@ -7,7 +7,7 @@ import Loader from "../../UI/loader/Loader";
 import Error from "../../UI/error/Error";
 import styles from "./Films.module.css";
 
-const Films: FC = () => {
+const Films: FC = (): JSX.Element => {
   const { data, isLoading, error } = useGetFilmsQuery();
 
   if (isLoading) return <Loader />;

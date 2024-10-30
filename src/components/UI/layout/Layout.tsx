@@ -6,7 +6,7 @@ interface ILayout {
   children: ReactNode;
 }
 
-const Layout: FC<ILayout> = ({ children }) => {
+const Layout: FC<ILayout> = ({ children }): JSX.Element => {
   const location = useLocation();
 
   const hideHeaderOnAuthPage = location.pathname === "/auth";

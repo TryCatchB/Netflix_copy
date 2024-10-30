@@ -5,7 +5,7 @@ interface ITitle {
   title: string;
 }
 
-const Title: FC<ITitle> = ({ title }) => {
+const Title: FC<ITitle> = ({ title }): JSX.Element => {
   return <h1 className={styles.title}>{title}</h1>;
 };
 

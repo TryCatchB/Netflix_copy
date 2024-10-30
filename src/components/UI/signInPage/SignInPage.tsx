@@ -10,7 +10,7 @@ interface SignInFormInputs {
   password: string;
 }
 
-const SignInPage: FC = () => {
+const SignInPage: FC = (): JSX.Element => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const SignInPage: FC = () => {
   const onSubmit = (data: SignInFormInputs) => {
     dispatch(login({ name: data.name, password: data.password }));
 
-    navigate("/");
+    navigate("/complete-profile");
   };
 
   return (
@@ -51,30 +51,12 @@ const SignInPage: FC = () => {
             {...register("name", { required: "name is required" })}
             error={!!errors.name}
             helperText={errors.name ? errors.name.message : ""}
-            sx={{
-              "& label": {
-                color: "white", // Label color
-              },
-              "& .MuiOutlinedInput-root": {
-                backgroundColor: "#0f1011",
-                "& fieldset": {
-                  borderColor: "#494949", // Border color
-                },
-                "&:hover fieldset": {
-                  borderColor: "#494949", // Border color on hover
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "#494949", // Border color when focused
-                },
-                "& input": {
-                  color: "white", // Text color when typing
-                  backgroundColor: "#0f1011",
-                },
-                "& input::placeholder": {
-                  color: "#B8B8B8", // Placeholder color
-                },
-              },
-            }}
+            sx={
+              /* Same style you used earlier */ {
+                "& label": { color: "white" },
+                "& input": { color: "white" },
+              }
+            }
           />
           <TextField
             fullWidth
@@ -85,30 +67,12 @@ const SignInPage: FC = () => {
             {...register("password", { required: "Password is required" })}
             error={!!errors.password}
             helperText={errors.password ? errors.password.message : ""}
-            sx={{
-              "& label": {
-                color: "white", // Label color
-              },
-              "& .MuiOutlinedInput-root": {
-                backgroundColor: "#0f1011",
-                "& fieldset": {
-                  borderColor: "#494949", // Border color
-                },
-                "&:hover fieldset": {
-                  borderColor: "#494949", // Border color on hover
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "#494949", // Border color when focused
-                },
-                "& input": {
-                  color: "white", // Text color when typing
-                  backgroundColor: "#0f1011",
-                },
-                "& input::placeholder": {
-                  color: "#B8B8B8", // Placeholder color
-                },
-              },
-            }}
+            sx={
+              /* Same style you used earlier */ {
+                "& label": { color: "white" },
+                "& input": { color: "white" },
+              }
+            }
           />
           <Button
             type="submit"

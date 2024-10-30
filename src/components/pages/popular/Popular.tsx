@@ -7,7 +7,7 @@ import Title from "../../UI/title/Title";
 import ListItems from "../../UI/listItems/ListItems";
 import styles from "./Popular.module.css";
 
-const Popular: FC = () => {
+const Popular: FC = (): JSX.Element => {
   const { data, isLoading, error } = useGetPopularsQuery();
 
   if (isLoading) return <Loader />;

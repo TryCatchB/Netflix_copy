@@ -1,72 +1,61 @@
-import React, { FC, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import React, { FC } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../../features/userSlice";
 import Image from "../../UI/image/Image";
 import styles from "./UserProfile.module.css";
 
-type UserProfileForm = {
-  userName: string;
-  dob: string;
-  country: string;
-  city: string;
+const LOCAL_STORAGE_KEYS = {
+  USER_NAME: "userName",
+  USER_CITY: "userCity",
+  USER_AGE: "userAge",
+  USER_DOB: "useDob",
 };
 
 const UserProfile: FC = (): JSX.Element => {
-  const storedName = localStorage.getItem("userName") || "";
-  const storedDob = localStorage.getItem("userDob") || "";
-  const storedCountry = localStorage.getItem("userCountry") || "";
-  const storedCity = localStorage.getItem("userCity") || "";
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const { register, handleSubmit, setValue } = useForm<UserProfileForm>({
-    defaultValues: {
-      userName: storedName,
-      dob: storedDob,
-      country: storedCountry,
-      city: storedCity,
-    },
-  });
+  const userName =
+    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_NAME) || "Your Name";
 
-  const onSubmit = (data: UserProfileForm) => {
-    localStorage.setItem("userName", data.userName);
-    localStorage.setItem("userDob", data.dob);
-    localStorage.setItem("userCountry", data.country);
-    localStorage.setItem("userCity", data.city);
-    alert("Profile updated!");
+  const userCity =
+    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_CITY) || "not found";
+
+  const userAge =
+    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_AGE) || "not found";
+
+  const userDob =
+    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_DOB) || "not found";
+
+  const handleLogout = () => {
+    dispatch(logout());
+
+    navigate("/auth");
   };
-
-  useEffect(() => {
-    setValue("userName", storedName);
-    setValue("dob", storedDob);
-    setValue("country", storedCountry);
-    setValue("city", storedCity);
-  }, [setValue, storedName, storedDob, storedCountry, storedCity]);
 
   return (
     <div className={styles.container}>
-      <div className={styles.user}>
+      <div className={styles.userPhoto}>
         <Image
           image={"https://cdn-icons-png.flaticon.com/512/149/149071.png"}
         />
-        <p className={styles.name}>{storedName}</p>
+        <p>{userName}</p>
       </div>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Name:
-          <input {...register("userName")} placeholder="Enter your name" />
-        </label>
-        <label>
-          Date of Birth:
-          <input type="date" {...register("dob")} />
-        </label>
-        <label>
-          Country:
-          <input {...register("country")} placeholder="Enter your country" />
-        </label>
-        <label>
-          City:
-          <input {...register("city")} placeholder="Enter your city" />
-        </label>
-        <button type="submit">Save Profile</button>
-      </form>
+      <div className={styles.userInfo}>
+        <p className={styles.city}>City:</p>
+        <p>{userCity}</p>
+        <p className={styles.age}>Age:</p>
+        <p>{userAge}</p>
+        <p className={styles.dob}>Date of Birth:</p>
+        <p>{userDob}</p>
+        <button className={styles.favourites} type="button">
+          Favourites
+        </button>
+        <button className={styles.logout} type="button" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

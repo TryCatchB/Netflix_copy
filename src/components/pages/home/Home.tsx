@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Greetings from "./greetings/Greetings";
 
-const Home: FC = () => {
+const Home: FC = (): JSX.Element => {
   return (
     <main>
       <Greetings />

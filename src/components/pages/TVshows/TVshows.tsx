@@ -7,7 +7,7 @@ import Title from "../../UI/title/Title";
 import ListItems from "../../UI/listItems/ListItems";
 import styles from "./TVshows.module.css";
 
-const TVshows: FC = () => {
+const TVshows: FC = (): JSX.Element => {
   const { data, error, isLoading } = useGetTvShowsQuery();
 
   if (isLoading) return <Loader />;

@@ -2,44 +2,59 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
     padding-top: 100px;
 }
 
-.form {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
+.userPhoto {
+  text-align: center;
+  font-size: 1.5625rem;
 }
 
-.user {
-    text-align: center;
-
-    & .name {
-        font-size: 30px;
-    }
-}
-
-label {
-  display: block;
-  font-size: 14px;
-  color: #ffffff;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-input {
-  width: 100%;
+.userInfo {
+  border: 1px solid white;
+  border-radius: 10px;
   padding: 10px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  transition: border-color 0.3s;
+  row-gap: 10px;
+  display: grid;
+  grid-template-columns: 15.625rem 15.625rem;
 
-  &:focus {
-    border-color: #007bff;
-    outline: none;
-  }
+    & p {
+      font-size: 1.875rem;
+      font-weight: 300;
+    }
+
+    :is(.age, .dob, .city) {
+      font-weight: inherit;
+    }
+
+    .favourites {
+      background-color: rgba(255, 92, 92, 0.759);
+      &:hover {
+        color: rgba(255, 92, 92, 0.759);
+      }
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+
+    :is(.favourites, .logout) {
+      font-size: 1rem;
+      border-radius: 5px;
+      padding: 10px;
+      color: #fff;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: #fff;
+      }
+    } 
+
+    .logout {
+      background-color: rgb(43, 10, 10);
+      &:hover {
+        color: rgb(43, 10, 10);
+      }
+    }
 }

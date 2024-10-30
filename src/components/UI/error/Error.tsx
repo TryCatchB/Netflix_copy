@@ -8,7 +8,7 @@ interface IError {
   error: FetchBaseQueryError | SerializedError;
 }
 
-const Error: FC<IError> = ({ error }) => {
+const Error: FC<IError> = ({ error }): JSX.Element => {
   const errorMessage = getErrorMessage(error);
 
   return <Alert severity="error">{errorMessage}</Alert>;

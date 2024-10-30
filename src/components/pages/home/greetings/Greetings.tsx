@@ -1,23 +1,11 @@
-import React, { FC, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { FC } from "react";
+import { useSelector } from "react-redux";
 import { RootState } from "../../../../store";
-import { login } from "../../../../features/userSlice";
 import Movie from "./Movie";
 import styles from "./Grettings.module.css";
 
-
-const Greetings: FC = () => {
-  const dispatch = useDispatch();
+const Greetings: FC = (): JSX.Element => {
   const user = useSelector((state: RootState) => state.user);
-
-  useEffect(() => {
-    const userName = localStorage.getItem("userName");
-    const isAuth = localStorage.getItem("isAuth");
-
-    if (userName && isAuth) {
-      dispatch(login({ name: userName, password: "" }));
-    }
-  }, [dispatch]);
 
   return (
     <div className={styles.grettings}>

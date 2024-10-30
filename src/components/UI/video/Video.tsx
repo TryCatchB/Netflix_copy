@@ -6,10 +6,10 @@ interface IVideo {
   height: string;
 }
 
-const Video: FC<IVideo> = ({ videoUrl, width, height }) => {
+const Video: FC<IVideo> = ({ videoUrl, width, height }): JSX.Element | null => {
   const videoId = videoUrl.split("v=")[1]?.split("&")[0];
 
-  if (!videoId) return;
+  if (!videoId) return null;
 
   return (
     <>

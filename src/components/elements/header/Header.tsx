@@ -5,7 +5,7 @@ import netflix from "./Netflix.png";
 import userIcon from "./User-icon-2.png";
 import styles from "./Header.module.css";
 
-const Header: FC = () => {
+const Header: FC = (): JSX.Element => {
   return (
     <header className={styles.header}>
       <Link to="/">
