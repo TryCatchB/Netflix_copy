@@ -29,6 +29,7 @@
     }
 
     .favourites {
+      text-align: center;
       background-color: rgba(255, 92, 92, 0.759);
       &:hover {
         color: rgba(255, 92, 92, 0.759);

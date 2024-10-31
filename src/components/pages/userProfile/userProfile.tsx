@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../../features/userSlice";
 import Image from "../../UI/image/Image";
 import styles from "./UserProfile.module.css";
@@ -9,7 +9,7 @@ const LOCAL_STORAGE_KEYS = {
   USER_NAME: "userName",
   USER_CITY: "userCity",
   USER_AGE: "userAge",
-  USER_DOB: "useDob",
+  USER_DOB: "userDob",
 };
 
 const UserProfile: FC = (): JSX.Element => {
@@ -49,9 +49,9 @@ const UserProfile: FC = (): JSX.Element => {
         <p>{userAge}</p>
         <p className={styles.dob}>Date of Birth:</p>
         <p>{userDob}</p>
-        <button className={styles.favourites} type="button">
+        <Link to={`/favorites/:${userName}`} className={styles.favourites}>
           Favourites
-        </button>
+        </Link>
         <button className={styles.logout} type="button" onClick={handleLogout}>
           Logout
         </button>
