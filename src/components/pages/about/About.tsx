@@ -1,7 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { RootState } from "../../../store";
 import { Content } from "../../../types/types";
 import useFetchContent from "./hooks/useFetchContent";
+import { addFavorite, removeFavorite } from "../../../features/favoritesSlice";
 import Video from "../../UI/video/Video";
 import Loader from "../../UI/loader/Loader";
 import Error from "../../UI/error/Error";
@@ -13,8 +18,10 @@ type ContentType = "tvshows" | "films" | "popular" | "newest";
 
 const About: FC = (): JSX.Element => {
   const { title, type } = useParams<{ title: string; type: ContentType }>();
+  const dispatch = useDispatch();
 
   const formattedTitle = title?.replace(/^[a-z]/g, " ");
+  const userName = localStorage.getItem("userName") || "";
 
   const {
     tvShows,
@@ -39,10 +46,25 @@ const About: FC = (): JSX.Element => {
   };
 
   const { content, loading, error } = contentData[type || ""];
-
   const foundedContent = content?.find(
     (item: Content) => item.title === formattedTitle
   );
+
+  const favorites = useSelector(
+    (state: RootState) => state.favorites.favorites[userName]
+  );
+  const isFavorite =
+    foundedContent && favorites ? !!favorites[foundedContent.id] : false;
+
+  const toggleFavorite = () => {
+    if (!foundedContent) return;
+
+    if (isFavorite) {
+      dispatch(removeFavorite({ userName, favoriteId: foundedContent.id }));
+    } else {
+      dispatch(addFavorite({ userName, favorite: foundedContent }));
+    }
+  };
 
   if (loading) return <Loader />;
   if (error) return <Error error={error} />;
@@ -51,6 +73,17 @@ const About: FC = (): JSX.Element => {
   return (
     <div className={styles.container}>
       <div className={styles.rowTitle}>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={toggleFavorite}
+        >
+          {isFavorite ? (
+            <FavoriteIcon fontSize="large" sx={{ color: "white" }} />
+          ) : (
+            <FavoriteBorderIcon fontSize="large" sx={{ color: "white" }} />
+          )}
+        </button>
         <p className={styles.title}>{foundedContent.title}</p>
         <p className={styles.year}>{foundedContent.metadata.year}</p>
         <p className={styles.episodes}>{foundedContent.metadata.episodes}</p>

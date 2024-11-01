@@ -14,3 +14,4 @@ const Image: FC<IImage> = ({ image }): JSX.Element => {
 };
 
 export default Image;
+ 

@@ -18,7 +18,7 @@ const routeToTabIndex: TrouteToTabIndex = {
   "/popular": 3,
 };
 
-const MyTabs: FC = (): JSX.Element => {
+const MyTabs: FC = (): JSX.Element | null => {
   const location = useLocation();
 
   const [value, setValue] = useState<number>(-1);

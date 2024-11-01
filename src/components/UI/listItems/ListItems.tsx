@@ -21,11 +21,10 @@ const ListItems: FC<IListItems> = ({ data }): JSX.Element => {
             <h3 className={styles.showTitle}>
               <span>{item.id}</span>. {item.title}
             </h3>
+            <p className={styles.text}>
+              <span className={styles.year}>{item.metadata.year}</span>
+            </p>
           </Link>
-          <p className={styles.text}>
-            <span className={styles.year}>{item.metadata.year}</span>
-            <span className={styles.episodes}>{item.metadata.episodes}</span>
-          </p>
         </li>
       ))}
     </ul>

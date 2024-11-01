@@ -15,14 +15,11 @@
     }
 }
 
-.showTitle {
-    color: white;
-}
-
 .year {
     margin-right: 0.625rem;
 }
 
 :is(.showTitle, .text) {
+    color: white;
     text-align: center;
 }

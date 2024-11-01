@@ -42,6 +42,10 @@
     }
 }
 
+.button {
+    background-color: transparent;
+}
+
 :is(.title, .text) {
     font-size: 1.5625rem;
  }

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Content } from "../types/types";
 
 interface IFavoritesSlice {
-  favorites: Record<string, Map<string, Content>>;
+  favorites: Record<string, Record<string, Content>>;
 }
 
 const initialState: IFavoritesSlice = {
@@ -20,10 +20,12 @@ export const favoritesSlice = createSlice({
       const { userName, favorite } = action.payload;
 
       if (!state.favorites[userName]) {
-        state.favorites[userName] = new Map<string, Content>();
+        state.favorites[userName] = {};
       }
 
-      state.favorites[userName].set(favorite.id, favorite);
+      if (!state.favorites[userName][favorite.id]) {
+        state.favorites[userName][favorite.id] = favorite;
+      }
     },
     removeFavorite: (
       state,
@@ -31,9 +33,9 @@ export const favoritesSlice = createSlice({
     ) => {
       const { userName, favoriteId } = action.payload;
 
-      if (!state.favorites[userName]) return;
-
-      state.favorites[userName].delete(favoriteId);
+      if (state.favorites[userName]) {
+        delete state.favorites[userName][favoriteId];
+      }
     },
   },
 });
