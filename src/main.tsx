@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import App from "./App.tsx";
 import { store, persistor } from "./store.ts";
+import App from "./App.tsx";
 import "./index.css";
 
 const root = document.getElementById("root") as HTMLElement;

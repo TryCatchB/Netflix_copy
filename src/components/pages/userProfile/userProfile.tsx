@@ -1,36 +1,22 @@
 import React, { FC } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../../features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store";
 import Image from "../../UI/image/Image";
 import styles from "./UserProfile.module.css";
 
-const LOCAL_STORAGE_KEYS = {
-  USER_NAME: "userName",
-  USER_CITY: "userCity",
-  USER_AGE: "userAge",
-  USER_DOB: "userDob",
-};
-
 const UserProfile: FC = (): JSX.Element => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const userName =
-    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_NAME) || "Your Name";
+  const { name, city, age, dob } = useSelector(
+    (state: RootState) => state.user
+  );
 
-  const userCity =
-    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_CITY) || "not found";
+  const handleLogout = async () => {
+    const { logout } = await import("../../../features/userSlice");
 
-  const userAge =
-    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_AGE) || "not found";
-
-  const userDob =
-    localStorage.getItem(LOCAL_STORAGE_KEYS.USER_DOB) || "not found";
-
-  const handleLogout = () => {
     dispatch(logout());
-
     navigate("/auth");
   };
 
@@ -40,16 +26,16 @@ const UserProfile: FC = (): JSX.Element => {
         <Image
           image={"https://cdn-icons-png.flaticon.com/512/149/149071.png"}
         />
-        <p>{userName}</p>
+        <p>{name}</p>
       </div>
       <div className={styles.userInfo}>
         <p className={styles.city}>City:</p>
-        <p>{userCity}</p>
+        <p>{city}</p>
         <p className={styles.age}>Age:</p>
-        <p>{userAge}</p>
+        <p>{age}</p>
         <p className={styles.dob}>Date of Birth:</p>
-        <p>{userDob}</p>
-        <Link to={`/favorites/:${userName}`} className={styles.favourites}>
+        <p>{dob}</p>
+        <Link to={`/favorites/:${name}`} className={styles.favourites}>
           Favourites
         </Link>
         <button className={styles.logout} type="button" onClick={handleLogout}>

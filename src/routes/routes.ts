@@ -43,7 +43,7 @@ export const routes = [
     element: CompleteProfilePage,
   },
   {
-    path: "/favorites/:userName",
+    path: "/favorites/:name",
     element: Favorites,
   },
   {

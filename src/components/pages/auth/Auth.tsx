@@ -10,3 +10,4 @@ const Auth: FC = (): JSX.Element => {
 };
 
 export default Auth;
+ 

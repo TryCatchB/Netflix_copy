@@ -1,12 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { RootState } from "../../../store";
-import { Content } from "../../../types/types";
-import useFetchContent from "./hooks/useFetchContent";
-import { addFavorite, removeFavorite } from "../../../features/favoritesSlice";
+import { useFavorite } from "./hooks/useFavorite";
+import { getData } from "./utils/getData";
 import Video from "../../UI/video/Video";
 import Loader from "../../UI/loader/Loader";
 import Error from "../../UI/error/Error";
@@ -18,53 +15,10 @@ type ContentType = "tvshows" | "films" | "popular" | "newest";
 
 const About: FC = (): JSX.Element => {
   const { title, type } = useParams<{ title: string; type: ContentType }>();
-  const dispatch = useDispatch();
 
-  const formattedTitle = title?.replace(/^[a-z]/g, " ");
-  const userName = localStorage.getItem("userName") || "";
+  const { foundedContent, loading, error } = getData(title, type);
 
-  const {
-    tvShows,
-    tvLoading,
-    tvError,
-    films,
-    filmLoading,
-    filmError,
-    popular,
-    popularLoading,
-    popularError,
-    newest,
-    newestLoading,
-    newestError,
-  } = useFetchContent();
-
-  const contentData = {
-    tvshows: { content: tvShows, loading: tvLoading, error: tvError },
-    films: { content: films, loading: filmLoading, error: filmError },
-    popular: { content: popular, loading: popularLoading, error: popularError },
-    newest: { content: newest, loading: newestLoading, error: newestError },
-  };
-
-  const { content, loading, error } = contentData[type || ""];
-  const foundedContent = content?.find(
-    (item: Content) => item.title === formattedTitle
-  );
-
-  const favorites = useSelector(
-    (state: RootState) => state.favorites.favorites[userName]
-  );
-  const isFavorite =
-    foundedContent && favorites ? !!favorites[foundedContent.id] : false;
-
-  const toggleFavorite = () => {
-    if (!foundedContent) return;
-
-    if (isFavorite) {
-      dispatch(removeFavorite({ userName, favoriteId: foundedContent.id }));
-    } else {
-      dispatch(addFavorite({ userName, favorite: foundedContent }));
-    }
-  };
+  const { isFavorite, toggleFavorite } = useFavorite(foundedContent);
 
   if (loading) return <Loader />;
   if (error) return <Error error={error} />;
