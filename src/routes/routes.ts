@@ -5,9 +5,9 @@ import Home from "../components/pages/home/Home";
 import MyList from "../components/pages/favourites/Favorites";
 import Popular from "../components/pages/popular/Popular";
 import TVshows from "../components/pages/TVshows/TVshows";
-import UserProfile from "../components/pages/userProfile/UserProfile";
 import CompleteProfilePage from "../components/UI/completeProfilePage/CompleteProfilePage";
 import Favorites from "../components/pages/favourites/Favorites";
+import UserProfile from "../components/pages/userProfile/UserProfile";
 
 export const routes = [
   {
