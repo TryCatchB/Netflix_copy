@@ -1,13 +1,13 @@
-import About from "../components/pages/about/About";
-import Auth from "../components/pages/auth/Auth";
-import Films from "../components/pages/films/Films";
-import Home from "../components/pages/home/Home";
-import MyList from "../components/pages/favourites/Favorites";
-import Popular from "../components/pages/popular/Popular";
-import TVshows from "../components/pages/TVshows/TVshows";
-import CompleteProfilePage from "../components/UI/completeProfilePage/CompleteProfilePage";
-import Favorites from "../components/pages/favourites/Favorites";
-import UserProfile from "../components/pages/userProfile/UserProfile";
+import About from "../components/pages/about/About.tsx";
+import Auth from "../components/pages/auth/Auth.tsx";
+import Films from "../components/pages/films/Films.tsx";
+import Home from "../components/pages/home/Home.tsx";
+import MyList from "../components/pages/favourites/Favorites.tsx";
+import Popular from "../components/pages/popular/Popular.tsx";
+import TVshows from "../components/pages/TVshows/TVshows.tsx";
+import CompleteProfilePage from "../components/UI/completeProfilePage/CompleteProfilePage.tsx";
+import Favorites from "../components/pages/favourites/Favorites.tsx";
+import UserProfile from "../components/pages/userProfile/UserProfile.tsx";
 
 export const routes = [
   {
