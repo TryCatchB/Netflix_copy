@@ -10,9 +10,11 @@ const CompleteProfilePage: FC = (): JSX.Element => {
 
   const onSubmit = async (data: ProfileFormInputs): Promise<void> => {
     const { completeProfile } = await import("../../../features/userSlice");
+    const { v4 } = await import("uuid");
+    const userId = v4();
 
     dispatch(
-      completeProfile({ age: data.age, dob: data.dob, city: data.city })
+      completeProfile({ age: data.age, dob: data.dob, city: data.city, userId })
     );
     navigate("/");
   };

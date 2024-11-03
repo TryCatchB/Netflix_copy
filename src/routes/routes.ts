@@ -2,7 +2,6 @@ import About from "../components/pages/about/About.tsx";
 import Auth from "../components/pages/auth/Auth.tsx";
 import Films from "../components/pages/films/Films.tsx";
 import Home from "../components/pages/home/Home.tsx";
-import MyList from "../components/pages/favourites/Favorites.tsx";
 import Popular from "../components/pages/popular/Popular.tsx";
 import TVshows from "../components/pages/TVshows/TVshows.tsx";
 import CompleteProfilePage from "../components/UI/completeProfilePage/CompleteProfilePage.tsx";
@@ -21,10 +20,6 @@ export const routes = [
   {
     path: "/films",
     element: Films,
-  },
-  {
-    path: "/mylist",
-    element: MyList,
   },
   {
     path: "/popular",

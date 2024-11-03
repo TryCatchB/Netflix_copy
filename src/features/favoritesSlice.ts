@@ -15,26 +15,26 @@ export const favoritesSlice = createSlice({
   reducers: {
     addFavorite: (
       state,
-      action: PayloadAction<{ name: string; favorite: Content }>
+      action: PayloadAction<{ userId: string; favorite: Content }>
     ) => {
-      const { name, favorite } = action.payload;
+      const { userId, favorite } = action.payload;
 
-      if (!state.favorites[name]) {
-        state.favorites[name] = {};
+      if (!state.favorites[userId]) {
+        state.favorites[userId] = {};
       }
 
-      if (!state.favorites[name][favorite.id]) {
-        state.favorites[name][favorite.id] = favorite;
+      if (!state.favorites[userId][favorite.title]) {
+        state.favorites[userId][favorite.title] = favorite;
       }
     },
     removeFavorite: (
       state,
-      action: PayloadAction<{ name: string; favoriteId: string }>
+      action: PayloadAction<{ userId: string; favoriteId: string }>
     ) => {
-      const { name, favoriteId } = action.payload;
+      const { userId, favoriteId } = action.payload;
 
-      if (state.favorites[name]) {
-        delete state.favorites[name][favoriteId];
+      if (state.favorites[userId]) {
+        delete state.favorites[userId][favoriteId];
       }
     },
   },

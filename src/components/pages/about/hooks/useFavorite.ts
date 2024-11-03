@@ -10,13 +10,13 @@ interface UseFavoriteReturn {
 
 export const useFavorite = (foundedContent: Content): UseFavoriteReturn => {
   const dispatch = useDispatch();
-  const { name } = useSelector((state: RootState) => state.user);
+  const userId = useSelector((state: RootState) => state.user.userId);
 
   const favorites = useSelector(
-    (state: RootState) => state.favorites.favorites[name]
+    (state: RootState) => state.favorites.favorites[userId]
   );
   const isFavorite =
-    foundedContent && favorites ? !!favorites[foundedContent.id] : false;
+    foundedContent && favorites ? !!favorites[foundedContent.title] : false;
 
   const toggleFavorite = useCallback(async () => {
     if (!foundedContent) return;
@@ -26,15 +26,15 @@ export const useFavorite = (foundedContent: Content): UseFavoriteReturn => {
         "../../../../features/favoritesSlice"
       );
 
-      dispatch(removeFavorite({ name, favoriteId: foundedContent.id }));
+      dispatch(removeFavorite({ userId, favoriteId: foundedContent.title }));
     } else {
       const { addFavorite } = await import(
         "../../../../features/favoritesSlice"
       );
 
-      dispatch(addFavorite({ name, favorite: foundedContent }));
+      dispatch(addFavorite({ userId, favorite: foundedContent }));
     }
-  }, [dispatch, foundedContent, isFavorite, name]);
+  }, [dispatch, foundedContent, isFavorite, userId]);
 
   return { isFavorite, toggleFavorite };
 };

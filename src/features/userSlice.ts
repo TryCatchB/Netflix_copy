@@ -9,6 +9,7 @@ interface IUser {
   password: string;
   isProfileComplete: boolean;
   isAuth: boolean;
+  userId: string;
 }
 
 const initialState: IUser = {
@@ -20,6 +21,7 @@ const initialState: IUser = {
   age: localStorage.getItem(LOCAL_STORAGE_KEYS.USER_AGE) || "",
   dob: localStorage.getItem(LOCAL_STORAGE_KEYS.USER_DOB) || "",
   city: localStorage.getItem(LOCAL_STORAGE_KEYS.USER_CITY) || "",
+  userId: localStorage.getItem(LOCAL_STORAGE_KEYS.USER_ID) || "",
 };
 
 export const userSlice = createSlice({
@@ -41,11 +43,17 @@ export const userSlice = createSlice({
     },
     completeProfile(
       state,
-      action: PayloadAction<{ age: string; dob: string; city: string }>
+      action: PayloadAction<{
+        age: string;
+        dob: string;
+        city: string;
+        userId: string;
+      }>
     ) {
       state.age = action.payload.age;
       state.dob = action.payload.dob;
       state.city = action.payload.city;
+      state.userId = action.payload.userId;
       state.isProfileComplete = true;
 
       localStorage.setItem(
@@ -54,11 +62,14 @@ export const userSlice = createSlice({
       );
       localStorage.setItem(LOCAL_STORAGE_KEYS.USER_DOB, action.payload.dob);
       localStorage.setItem(LOCAL_STORAGE_KEYS.USER_CITY, action.payload.city);
+      localStorage.setItem(LOCAL_STORAGE_KEYS.USER_ID, action.payload.userId);
       localStorage.setItem(LOCAL_STORAGE_KEYS.IS_PROFILE_COMPLETE, "true");
     },
     logout(state) {
       state.name = "";
       state.password = "";
+      state.password = "";
+      state.userId = "";
       state.isAuth = false;
       state.isProfileComplete = false;
 
@@ -68,6 +79,7 @@ export const userSlice = createSlice({
       localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_AGE);
       localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_DOB);
       localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_CITY);
+      localStorage.removeItem(LOCAL_STORAGE_KEYS.USER_ID);
       localStorage.removeItem(LOCAL_STORAGE_KEYS.IS_PROFILE_COMPLETE);
     },
   },
