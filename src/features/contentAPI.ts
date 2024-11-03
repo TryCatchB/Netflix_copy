@@ -4,7 +4,7 @@ import { Content } from "../types/types";
 export const contentAPI = createApi({
   reducerPath: "contentAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_API_URL,
+    baseUrl: "https://sincere-kit-400818.uc.r.appspot.com/",
   }),
   endpoints: (builder) => ({
     getTvShows: builder.query<Content[], void>({
