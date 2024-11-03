@@ -6,7 +6,7 @@ import Popular from "../components/pages/popular/Popular.tsx";
 import TVshows from "../components/pages/TVshows/TVshows.tsx";
 import CompleteProfilePage from "../components/UI/completeProfilePage/CompleteProfilePage.tsx";
 import Favorites from "../components/pages/favourites/Favorites.tsx";
-import UserProfile from "../components/pages/userProfile/UserProfile.tsx";
+import UserProfile from "../components/pages/profile/UserProfile.tsx";
 
 export const routes = [
   {
