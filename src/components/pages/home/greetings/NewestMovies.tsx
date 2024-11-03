@@ -6,7 +6,7 @@ import Error from "../../../UI/error/Error";
 import ListItems from "../../../UI/listItems/ListItems";
 import styles from "./Movie.module.css";
 
-const Movie: FC = (): JSX.Element => {
+const NewestMovies: FC = (): JSX.Element => {
   const { data, isLoading, error } = useGetNewestQuery();
 
   if (isLoading) return <Loader />;
@@ -20,4 +20,4 @@ const Movie: FC = (): JSX.Element => {
   );
 };
 
-export default Movie;
+export default NewestMovies;
